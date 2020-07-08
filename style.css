@@ -23,6 +23,7 @@ body {
   left: 0;
   top: 0;
   z-index: 10;
+  /* border-right: 2px solid #ddd; */
   padding: 30px;
   display: none;
 }
@@ -49,6 +50,7 @@ body {
 }
 ul {
   list-style: none;
+  cursor: pointer;
 }
 ul li {
   padding: 10px;
@@ -61,14 +63,15 @@ ul .main-item .sub {
   display: none;
   transform: all 0.5s ease;
 }
-ul li ul li {
+ul li ul li a{
   padding: 5px;
   color: #ddd;
 }
-.sub1 ,.sub2{
+.sub1,
+.sub2 {
   display: none;
 }
-.show{
+.show {
   display: block;
 }
 .fa-user {
@@ -91,18 +94,18 @@ ul li ul li {
 .right {
   background-color: #37596b;
   height: 100vh;
-  min-width: 35%;
+  min-width: 40%;
   display: flex;
   justify-content: center;
   border-left: 2px solid #ddd;
   align-items: center;
-  float: left;
+  position: relative;
 }
 .left {
   background-color: #012436;
   padding: 20px;
   height: 100vh;
-  min-width: 65%;
+  min-width: 60%;
   box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.8);
   float: left;
 }
@@ -171,28 +174,58 @@ h5 {
   outline: none;
 }
 
-/* @media screen and (max-width: 800px) {
-    .left, .right {
-      width: 100%;
-    }
-
-    .right{
-        padding-top: 0%;
-    }
+.row {
+  position: absolute;
+  top: 30%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.row button {
+  padding: 15px 15px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+  font-family: poppins;
+  font-weight: 600;
+  font-size: 18px;
+  outline: none;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+.activesection {
+  display: block;
+}
+/* .hidesection{
+  display: none;
+} */
+.option.hide {
+  display: none;
+}
+.option.show {
+  display: block;
+  animation: show 0.5s;
+}
+@keyframes show {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
   }
 
-  
-@media screen and (min-width: 1024px) {
-    .left {
-      width: 65%;
-      
-    }
-
-    .right{
-       width: 35%;
-    }
-  } */
-
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* ::-webkit-scrollbar-track{
+  border: 7px solid #ddd;
+  border-radius: 10px;
+}
+::-webkit-slider-thumb{
+  background-color: red;
+  border-radius: 5px;
+} */
 @media (min-width: 320px) {
   .left,
   .right {
@@ -204,6 +237,11 @@ h5 {
   td > button {
     margin: 13px;
     align-items: flex-start;
+  }
+  .row button{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -25px;
   }
 }
 @media (min-width: 481px) {
@@ -233,7 +271,7 @@ h5 {
   td > button {
     width: 45px;
     height: 45px;
-    margin: 10px 2px;
+    margin: 20px 20px;
   }
 }
 @media (min-width: 1025px) {
@@ -241,7 +279,7 @@ h5 {
     width: 50px;
     height: 50px;
   }
-  .left{
+  .left {
     width: 100%;
   }
 }
@@ -250,5 +288,4 @@ h5 {
     width: 60px;
     height: 60px;
   }
-  
 }

@@ -4,15 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="quiz.JPG" type="image/JPG" sizes="16x16" />
   </head>
   <body>
     <!-- <audio src="bgaudio.mp3" autoplay></audio> -->
-    
+
     <div class="aside">
-      
       <!--Nav-->
       <ul class="nav">
         <li>
@@ -22,28 +24,30 @@
           <a href="#">Round 1 <i class="fa fa-caret-down" aria-hidden="true"></i>
           </a>
           <ul class="sub1">
-             <li>Group A</li>
-             <li>Group B</li>
-             <li>Group C</li>
-             <li>Group D</li>
-             <li>Group E</li>
-             <li>Group F</li>
-             <li>Group G</li>
-             <li>Group H</li>
-             <li>Group I</li>
-             <li>Group J</li>
+            <li><a href="#">Group A</a></li>
+            <li><a href="#">Group B</a></li>
+            <li><a href="#">Group C</a></li>
+            <li><a href="#">Group D</a></li>
+            <li><a href="#">Group E</a></li>
+            <li><a href="#">Group F</a></li>
+            <li><a href="#">Group G</a></li>
+            <li><a href="#">Group H</a></li>
+            <li><a href="#">Group I</a></li>
+            <li><a href="#">Group J</a></li>
+            
           </ul>
         </li>
         <li class="main-item2">
-          <a href="#">Round 2 <i class="fa fa-caret-down" aria-hidden="true"></i>
+          <a href="#"
+            >Round 2 <i class="fa fa-caret-down" aria-hidden="true"></i>
           </a>
           <ul class="sub2">
-            <li>Group A</li>
-            <li>Group B</li>
-            <li>Group C</li>
-            <li>Group D</li>
-            <li>Group E</li>
-         </ul>
+            <li><a href="#">Group A</a></li>
+            <li><a href="#">Group B</a></li>
+            <li><a href="#">Group C</a></li>
+            <li><a href="#">Group D</a></li>
+            <li><a href="#">Group E</a></li>
+          </ul>
         </li>
         <li>
           <a href="#">Round 3</a>
@@ -51,19 +55,17 @@
       </ul>
     </div>
 
-
-
     <div class="container">
       <div class="left">
-         <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-         </div>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
         <h2>Welcome to Kings of Night Quiz Competition</h2>
         <div class="question">
           <div class="timer">
-            <h2>20</h2>
+            <h2>0</h2>
             <br />
             <h6>SEC</h6>
           </div>
@@ -73,43 +75,92 @@
       </div>
 
       <div class="right">
-        <table class="option">
-          <tr>
-            <td><button id="1">1</button></td>
-            <td><button id="2">2</button></td>
-            <td><button id="3">3</button></td>
-            <td><button id="4">4</button></td>
-            <td><button id="5">5</button></td>
-          </tr>
-          <tr>
-            <td><button id="6">6</button></td>
-            <td><button id="7">7</button></td>
-            <td><button id="8">8</button></td>
-            <td><button id="9">9</button></td>
-            <td><button id="10">10</button></td>
-          </tr>
-          <tr>
-            <td><button>11</button></td>
-            <td><button>12</button></td>
-            <td><button>13</button></td>
-            <td><button>14</button></td>
-            <td><button>15</button></td>
-          </tr>
-          <tr>
-            <td><button>16</button></td>
-            <td><button>17</button></td>
-            <td><button>18</button></td>
-            <td><button>19</button></td>
-            <td><button>20</button></td>
-          </tr>
-          <tr>
-            <td><button>21</button></td>
-            <td><button>22</button></td>
-            <td><button>23</button></td>
-            <td><button>24</button></td>
-            <td><button>25</button></td>
-          </tr>
-        </table>
+        <div class="row">
+          <button type="button" class="activesection" data-filter="science">
+            Science
+          </button>
+          <button type="button" data-filter="GK">GK</button>
+          <button type="button" data-filter="sports">Sports</button>
+          <button type="button" data-filter="recent">Recent Events</button>
+          <button type="button" data-filter="geography">Geography</button>
+        
+        </div>
+        <div class="optionlist">
+          <table class="option show" data-category="science">
+            <tr>
+              <td><button id="1">1</button></td>
+              <td><button id="2">2</button></td>
+              <td><button id="3">3</button></td>
+              <td><button id="4">4</button></td>
+            </tr>
+            <tr>
+              <td><button id="5">5</button></td>
+              <td><button id="6">6</button></td>
+              <td><button id="7">7</button></td>
+              <td><button id="8">8</button></td>
+            </tr>
+          </table>
+
+          <table class="option hide" data-category="GK">
+            <tr>
+              <td><button id="9">1</button></td>
+              <td><button id="10">2</button></td>
+              <td><button id="11">3</button></td>
+              <td><button id="12">4</button></td>
+            </tr>
+            <tr>
+              <td><button id="13">5</button></td>
+              <td><button id="14">6</button></td>
+              <td><button id="15">7</button></td>
+              <td><button id="16">8</button></td>
+            </tr>
+          </table>
+
+          <table class="option hide" data-category="sports">
+            <tr>
+              <td><button id="17">1</button></td>
+              <td><button id="18">2</button></td>
+              <td><button id="19">3</button></td>
+              <td><button id="20">4</button></td>
+            </tr>
+            <tr>
+              <td><button id="21">5</button></td>
+              <td><button id="22">6</button></td>
+              <td><button id="23">7</button></td>
+              <td><button id="24">8</button></td>
+            </tr>
+          </table>
+
+          <table class="option hide" data-category="recent">
+            <tr>
+              <td><button id="25">1</button></td>
+              <td><button id="26">2</button></td>
+              <td><button id="27">3</button></td>
+              <td><button id="28">4</button></td>
+            </tr>
+            <tr>
+              <td><button id="29">5</button></td>
+              <td><button id="30">6</button></td>
+              <td><button id="31">7</button></td>
+              <td><button id="32">8</button></td>
+            </tr>
+          </table>
+
+          <table class="option hide" data-category="geography">
+            <tr>
+              <td><button id="25">1</button></td>
+              <td><button id="26">2</button></td>
+              <td><button id="27">3</button></td>
+              <td><button id="28">4</button></td>
+            </tr>
+            <tr>
+              <td><button id="29">5</button></td>
+              <td><button id="30">6</button></td>
+              <td><button id="31">7</button></td>
+              <td><button id="32">8</button></td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>

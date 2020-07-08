@@ -9,27 +9,32 @@ burger.addEventListener("click", () => {
 const mainItem1 = document.querySelector(".main-item1 a");
 const subItem1 = document.querySelector(".sub1");
 
-mainItem1.addEventListener("click",()=>{
-    subItem1.classList.toggle("show");
+mainItem1.addEventListener("click", () => {
+  subItem1.classList.toggle("show");
 });
 
 const mainItem2 = document.querySelector(".main-item2 a");
 const subItem2 = document.querySelector(".sub2");
 
-mainItem2.addEventListener("click",()=>{
-    subItem2.classList.toggle("show");
+mainItem2.addEventListener("click", () => {
+  subItem2.classList.toggle("show");
 });
-  
 
-let time = 20;
-function updateCounter() {
-  if (time >= 0) {
-    document.querySelector(".timer h2").innerHTML = `${time}`;
-    time--;
-  } else {
-    document.querySelector(".timer h2").innerHTML = 20;
+let count=0;
+const time=20;
+const counter = document.querySelector(".timer h2");
+function updateCounter(){
+  if(count< time){
+    count++;
+    counter.innerHTML=count;
+  }
+  else{
+    clearInterval(TIMER);
+    counter.innerHTML="0";
+    count=0;
   }
 }
+
 
 const question = [
   {
@@ -58,12 +63,12 @@ const question = [
   },
   {
     q: "What is your name----?",
-    qc: 90,
+    qc: 16,
   },
 ];
 
-var buttons = document.querySelector("table");
-buttons.addEventListener("click", getQuestion, false);
+var buttons = document.querySelector("div.optionlist");
+buttons.addEventListener("click", getQuestion, true);
 
 function getQuestion(e) {
   if (e.target != e.currentTarget) {
@@ -72,11 +77,12 @@ function getQuestion(e) {
       var questionNumber = question[i].qc;
       if (id == questionNumber) {
         document.querySelector("h5").innerHTML = question[i].q;
-        setInterval(updateCounter, 1000);
+        TIMER=setInterval(updateCounter,1000);
       }
     }
     document.getElementById(id).style.backgroundColor = "red";
-    // e.target.style.backgroundColor = "red";
+    document.getElementById(id).style.color = "white";
+    document.getElementById(id).setAttribute("disabled", "");
   }
   e.stopPropagation();
 }
@@ -85,3 +91,32 @@ var rows = document.querySelector("tr");
 rows.addEventListener("click", () => {
   rows.style.backgroundColor = "none";
 });
+
+/*================================*/
+/*-------Categories---------------*/
+/*================================*/
+const filterContainer = document.querySelector(".row"),
+  filterBtns = filterContainer.children,
+  totalFilterBtns = filterBtns.length,
+  categoryItems = document.querySelectorAll(".option"),
+  totalCategoryItems = categoryItems.length;
+
+for (let i = 0; i < totalFilterBtns; i++) {
+  filterBtns[i].addEventListener("click", function () {
+    filterContainer
+      .querySelector(".activesection")
+      .classList.remove("activesection");
+    this.classList.add("activesection");
+
+    const filterValue = this.getAttribute("data-filter");
+    for (let k = 0; k < totalCategoryItems; k++) {
+      if (filterValue === categoryItems[k].getAttribute("data-category")) {
+        categoryItems[k].classList.remove("hide");
+        categoryItems[k].classList.add("show");
+      } else {
+        categoryItems[k].classList.remove("show");
+        categoryItems[k].classList.add("hide");
+      }
+    }
+  });
+}
