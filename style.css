@@ -140,29 +140,19 @@ ul li.active a i {
   animation-name: dropdown;
   animation-duration: 0.8s;
   transform: all 1s ease-in-out;
+  
 }
 
 @keyframes dropdown {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  /* 25% {
-    transform: translateX(-75%);
-    opacity: 0;
-  }
-  50% {
-    transform: translateX(-50%);
-    opacity: 0;
-  }
-  75% {
-    transform: translateX(-25%);
-    opacity: 0;
-  } */
-  100% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
+  0%{
+    opacity:0;
+    transform:translateX(-30px);
+}
+100%{
+    opacity:1;
+    transform: translateX(0px);
+}
+  
 }
 
 .fa {
