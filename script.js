@@ -1,9 +1,20 @@
-const burger = document.querySelector(".burger");
+const burger = document.querySelector(".burger ");
 const aside = document.querySelector(".aside");
+const openNav = document.querySelector(".openNav");
+const closeNav = document.querySelector(".close");
 
-burger.addEventListener("click", () => {
+openNav.addEventListener("click", () => {
   aside.classList.toggle("nav_active");
   burger.classList.toggle("open");
+  openNav.style.display ="none";
+  closeNav.style.display ="initial";
+});
+
+closeNav.addEventListener("click", () => {
+  aside.classList.toggle("nav_active");
+  burger.classList.toggle("open");
+  closeNav.style.display ="none";
+  openNav.style.display ="initial";
 });
 
 const mainItem1 = document.querySelector(".main-item1 a");
@@ -34,6 +45,15 @@ function updateCounter(){
     count=0;
   }
 }
+
+const navLinks = document.querySelectorAll(".nav li");
+navLinks.forEach(link=>{
+  link.addEventListener("click",function(){
+ document.querySelector(".nav>.active").classList.remove("active");
+ link.classList.add("active");
+
+  })
+})
 
 
 const question = [
